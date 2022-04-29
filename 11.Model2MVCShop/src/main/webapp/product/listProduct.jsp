@@ -1,49 +1,47 @@
 <%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page pageEncoding="EUC-KR"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%-- 
-<%@ page import="java.util.List"  %>
-
-<%@ page import="com.model2.mvc.service.domain.Product" %>
-<%@ page import="com.model2.mvc.common.Search" %>
-<%@page import="com.model2.mvc.common.Page"%>
-<%@page import="com.model2.mvc.common.util.CommonUtil"%>
-
-<%
-   List<Product> list= (List<Product>)request.getAttribute("list");
-   Page resultPage=(Page)request.getAttribute("resultPage");
-   
-   Search search = (Search)request.getAttribute("search");
-   //==> null 을 ""(nullString)으로 변경
-   String searchCondition = CommonUtil.null2str(search.getSearchCondition());
-   String searchKeyword = CommonUtil.null2str(search.getSearchKeyword());
-%>
-
-<%
-   String menu = request.getParameter("menu");
-   String title = null;
-
-      if(menu.equals("manage")){
-         title="상품관리";
-      }else{
-         title="상품 목록조회";
-      }
-%>
---%>
 
 
+<!DOCTYPE html>
 
-
-
-<html>
+<html lang="ko">
+	
 <head>
-<title>상품 목록조회</title>
-
-<link rel="stylesheet" href="/css/admin.css" type="text/css">
-
-	<!-- CDN(Content Delivery Network) 호스트 사용 -->
-	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<meta charset="EUC-KR">
+	
+	<!-- 참조 : http://getbootstrap.com/css/   참조 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<!--  ///////////////////////// Bootstrap, jQuery CDN ////////////////////////// -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+	
+	
+	<!-- Bootstrap Dropdown Hover CSS -->
+   <link href="/css/animate.min.css" rel="stylesheet">
+   <link href="/css/bootstrap-dropdownhover.min.css" rel="stylesheet">
+    <!-- Bootstrap Dropdown Hover JS -->
+   <script src="/javascript/bootstrap-dropdownhover.min.js"></script>
+   
+   
+   <!-- jQuery UI toolTip 사용 CSS-->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- jQuery UI toolTip 사용 JS-->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<!--  ///////////////////////// CSS ////////////////////////// -->
+	<style>
+	  body {
+            padding-top : 50px;
+        }
+    </style>
+    
+     <!--  ///////////////////////// JavaScript ////////////////////////// -->
 	<script type="text/javascript">
 	
 		//=====기존Code 주석 처리 후  jQuery 변경 ======//
