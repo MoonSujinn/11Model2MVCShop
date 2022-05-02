@@ -55,31 +55,29 @@ body {
 				"/product/listProduct?menu=${menu}").submit();
 	}
 	//===========================================//
-	//==> 추가된부분 : "검색" ,  userId link  Event 연결 및 처리
-	$(function() {
 
-	});
+       $(function() {
+          //==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+          $( "button.btn.btn-default" ).on("click" , function() {
+            fncGetUserList(1);
+         });
+       });
 
-	//==> userId LINK Event 연결처리
-	//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-	//==> 3 과 1 방법 조합 : $(".className tagName:filter함수") 사용함.
 
-	<c:if test= "${param.menu=='manage'}" >
-	$(function() {
-
-		//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-		$("td:nth-child(2)").on(
-				"click",
-				function() {
-					self.location = "/product/updateProduct?prodNo="
-							+ $(this).attr("prodNo");
-				});
-
-		//==> userId LINK Event End User 에게 보일수 있도록 
-		$("td:nth-child(2)").css("color", "red");
-
-	});
-	</c:if>
+	
+	<c:if test= "${param.menu=='manage'}" >	
+    $(function() {
+        
+        //==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+        $( "td:nth-child(2)" ).on("click" , function() {
+            self.location ="/product/updateProduct?prodNo="+ $(this).attr("prodNo");
+        });
+                 
+        //==> prodNo LINK Event End User 에게 보일수 있도록 
+        $( "td:nth-child(2)" ).css("color" , "red");
+        
+     }); 
+    </c:if>
 
 	<c:if test= "${param.menu=='search'}" >
 	$(function() {
@@ -97,49 +95,49 @@ body {
 
 	});
 	</c:if>
-
-	 $(function() {
-		 
-			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$(  "td:nth-child(5) > i" ).on("click" , function() {
-
-					var prodNo = $(this).attr("prodNO");
-				
-					$.ajax( 
-							{
-								url : "/product/json/getProduct/"+prodNo ,
-								method : "GET" ,
-								dataType : "json" ,
-								headers : {
-									"Accept" : "application/json",
-									"Content-Type" : "application/json"
-								},
-								success : function(JSONData , status) {
-
-									var displayValue = "<h6>"
-																+"상품   번호 : "+JSONData.prodNo+"<br/>"
-																+"상품   이름 : "+JSONData.prodName+"<br/>"
-																+"상품상세정보 : "+JSONData.prodDetail+"<br/>"
-																+"제조일자 : "+JSONData.manuDate+"<br/>"
-																+"가격 : "+JSONData.price+"<br/>"
-																+"</h6>";
-									$("h6").remove();
-									$( "#"+JSONData.prodNo+"" ).html(displayValue);
-								}
-						});
-						////////////////////////////////////////////////////////////////////////////////////////////
-					
-			});
-			
-			//==> userId LINK Event End User 에게 보일수 있도록 
-			$( ".ct_list_pop td:nth-child(3)" ).css("color" , "red");
-			$("h7").css("color" , "red");
-			
-			//==> 아래와 같이 정의한 이유는 ??
-			$(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
-		});	
 	
-	</script>
+
+    $(function() {
+        
+        //==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+        $(  "td:nth-child(6) > i" ).on("click" , function() {
+
+              var prodNo = $(this).next().val();
+           
+              $.ajax( 
+                    {
+                       url : "/product/json/getProduct/"+prodNo ,
+                       method : "GET" ,
+                       dataType : "json" ,
+                       headers : {
+                          "Accept" : "application/json",
+                          "Content-Type" : "application/json"
+                       },
+                       success : function(JSONData , status) {
+
+                          var displayValue = "<h6>"
+                  							+"상품번호    : "+JSONData.prodNo+"<br/>"
+              								 +"상품명       : "+JSONData.prodName+"<br/>"
+              				 				+"상품이미지    : "+JSONData.fileName+"<br/>"
+              				 				+"상품상제정보    : "+JSONData.prodDetail+"<br/>"
+               								+"가격       : "+JSONData.price+"<br/>"
+                                            +"</h6>";
+                          					$("h6").remove();
+                          					$( "#"+JSONData.prodNo+"" ).append(displayValue);
+                       }
+                 });
+                 ////////////////////////////////////////////////////////////////////////////////////////////
+        });
+        
+        //==> prodNo LINK Event End User 에게 보일수 있도록 
+        $( ".ct_list_pop td:nth-child(3)" ).css("color" , "red");
+        $("h7").css("color" , "red");
+        
+        //==> 아래와 같이 정의한 이유는 ??
+        $(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
+     });   
+  
+  </script>
 
 
 </head>
@@ -220,7 +218,7 @@ body {
 					<tr>
 						<td align="center">${ i }</td>
 						<td align="left" title="Click : 상품 상세정보 확인"
-							prodNo=${product.prodNo }>${product.prodName}</td>
+							prodNo="${product.prodNo}">${product.prodName}</td>
 						<td align="left">${product.price}</td>
 						<td align="left">${product.regDate}</td>
 						<td align="left">${product.proTranCode}</td>

@@ -118,6 +118,16 @@ body {
 
 		<!-- form Start /////////////////////////////////////-->
 		<form class="form-horizontal">
+		
+		  <div class="form-group">
+		    <label for="prodNo" class="col-sm-offset-1 col-sm-3 control-label">상품번호</label>
+		    <div class="col-sm-4">
+		      <input type="text" class="form-control" id=""prodNo"" name="prodNo" value="${product.prodNo }" placeholder="상품번호"  readonly>
+		       <span id="helpBlock" class="help-block">
+		      	<strong class="text-danger">상품번호는 수정불가</strong>
+		      </span>
+		    </div>
+		  </div>
 
 
 			<div class="form-group">
@@ -168,7 +178,6 @@ body {
 					alert(date);
 				});
 			</script>
-
 
 			<div class="form-group">
 				<label for="price" class="col-sm-offset-1 col-sm-3 control-label">가격</label>
