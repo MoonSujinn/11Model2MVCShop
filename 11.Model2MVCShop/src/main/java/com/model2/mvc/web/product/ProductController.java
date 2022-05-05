@@ -53,7 +53,7 @@ public class ProductController {
 		//Business Logic
 		productService.addProduct(product);
 		
-		return "redirect:/product/addProductView.jsp";
+		return "redirect:/product/listProduct?menu=search";
 	}
 	
 
@@ -97,7 +97,7 @@ public class ProductController {
 	
 	
 	@RequestMapping( value="listProduct" )
-	public String listProduct( @ModelAttribute("search") Search search , Model model , HttpServletRequest request, @RequestParam("menu") String menu) throws Exception{
+	public String listProduct( @ModelAttribute("search") Search search , Model model, @RequestParam("menu") String menu) throws Exception{
 		
 		System.out.println("/product/listProduct : GET / POST");
 		

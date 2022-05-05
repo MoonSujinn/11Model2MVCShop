@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=EUC-KR" %>
 <%@ page pageEncoding="EUC-KR"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
@@ -31,24 +32,15 @@
             padding-top : 50px;
         }
      </style>
-    
-     <!--  ///////////////////////// JavaScript ////////////////////////// -->
+     
 	<script type="text/javascript">
 		
-		//============= 회원정보수정 Event  처리 =============	
 		 $(function() {
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			 $( "button.btn.btn-primary" ).on("click" , function() {
-					self.location = "/user/updateUser?userId=${user.userId}"
+			 $( "button" ).on("click" , function() {
+					self.location = "/purchase/listPurchase"
 				});
 		});
-		
-			$(function() {
-				//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-				$("a[href='#' ]").on("click", function() {
-					history.go(-1);
-				});
-			});
 		
 	</script>
 	
@@ -64,58 +56,90 @@
 	<div class="container">
 	
 		<div class="page-header">
-	       <h3 class=" text-info">회원정보조회</h3>
-	       <h5 class="text-muted">내 정보를 <strong class="text-danger">최신정보로 관리</strong>해 주세요.</h5>
+	       <h3 class=" text-info">구매 완료</h3>
+	       <h5 class="text-muted">구매 정보를 <strong class="text-danger">확인</strong>해 주세요.</h5>
 	    </div>
+	    
 	
 		<div class="row">
-	  		<div class="col-xs-4 col-md-2"><strong>아 이 디</strong></div>
+	  		<div class="col-xs-4 col-md-2"><strong>물품 번호</strong></div>
+			<div class="col-xs-8 col-md-4">${purchase.purchaseProd.prodNo}</div>
+		</div>
+		
+		<hr/>
+		
+		<div class="row">
+	  		<div class="col-xs-4 col-md-2 "><strong>구매자아이디</strong></div>
 			<div class="col-xs-8 col-md-4">${user.userId}</div>
 		</div>
 		
 		<hr/>
 		
 		<div class="row">
-	  		<div class="col-xs-4 col-md-2 "><strong>이 름</strong></div>
-			<div class="col-xs-8 col-md-4">${user.userName}</div>
-		</div>
-		
-		<hr/>
-		
-		<div class="row">
-	  		<div class="col-xs-4 col-md-2 "><strong>주소</strong></div>
-			<div class="col-xs-8 col-md-4">${user.addr}</div>
-		</div>
-		
-		<hr/>
-		
-		<div class="row">
-	  		<div class="col-xs-4 col-md-2 "><strong>휴대전화번호</strong></div>
-			<div class="col-xs-8 col-md-4">${ !empty user.phone ? user.phone : ''}	</div>
-		</div>
-		
-		<hr/>
-		
-		<div class="row">
-	  		<div class="col-xs-4 col-md-2"><strong>이 메 일</strong></div>
-			<div class="col-xs-8 col-md-4">${user.email}</div>
-		</div>
-		
-		<hr/>
-		
-		<div class="row">
-	  		<div class="col-xs-4 col-md-2 "><strong>가입일자</strong></div>
-			<div class="col-xs-8 col-md-4">${user.regDate}</div>
-		</div>
-		
-		<hr/>
-		
-			<div class="form-group">
-				<div class="col-sm-offset-4  col-sm-4 text-center">
-					<button type="button" class="btn btn-primary">회원정보수정</button>
-					<a class="btn btn-primary btn" href="#" role="button">이 &nbsp;전</a>
-				</div>
+	  		<div class="col-xs-4 col-md-2 "><strong>구매방법</strong></div>
+			<div class="col-xs-8 col-md-4">
+
+	  	<c:if test="${purchase.paymentOption.trim()=='1'}">
+      
+			현금구매
+			
+		</c:if>
+      
+	  	<c:if test="${purchase.paymentOption.trim()=='2'}">
+      
+			신용구매
+			
+		</c:if>
+				  	
 			</div>
+		</div>
+		
+		<hr/>
+		
+		<div class="row">
+	  		<div class="col-xs-4 col-md-2"><strong>구매자이름</strong></div>
+			<div class="col-xs-8 col-md-4">${purchase.receiverName}</div>
+		</div>
+		
+		<hr/>
+		
+		<div class="row">
+	  		<div class="col-xs-4 col-md-2 "><strong>구매자연락처</strong></div>
+			<div class="col-xs-8 col-md-4">${purchase.receiverPhone}</div>
+		</div>
+		
+		<hr/>
+		
+		<div class="row">
+	  		<div class="col-xs-4 col-md-2 "><strong>구매자주소</strong></div>
+			<div class="col-xs-8 col-md-4">${purchase.divyAddr}</div>
+		</div>
+		
+		<hr/>
+		
+		<div class="row">
+	  		<div class="col-xs-4 col-md-2 "><strong>구매요청사항</strong></div>
+			<div class="col-xs-8 col-md-4">${purchase.divyRequest}</div>
+		</div>
+		
+		<hr/>
+		
+		<div class="row">
+	  		<div class="col-xs-4 col-md-2 "><strong>배송희망일</strong></div>
+			<div class="col-xs-8 col-md-4">${purchase.divyDate}</div>
+		</div>
+		
+		<hr/>
+		
+		<div class="row">
+	  		<div class="col-md-12 text-center ">
+	  			<button type="button" class="btn btn-primary">확인</button>
+	  		</div>
+		</div>
+		
+		
+		
+		
 		
 		<br/>
 		

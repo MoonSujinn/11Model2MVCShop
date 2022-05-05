@@ -31,6 +31,27 @@
             padding-top : 50px;
         }
      </style>
+     
+    <script type="text/javascript">
+		
+		//============= 회원정보수정 Event  처리 =============	
+		 $(function() {
+			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			 $( "button.btn.btn-primary" ).on("click" , function() {
+					self.location = "/purchase/addPurchase?prodNo=${product.prodNo}"
+				});
+		});
+		
+		 $(function() {
+				//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+				 $("a[href='#' ]").on("click" , function() {
+					 history.go(-1);
+					});
+			});
+		 
+    
+				
+	</script>
     
      <!--  ///////////////////////// JavaScript ////////////////////////// -->
 	<script type="text/javascript">
@@ -101,6 +122,17 @@
 		</div>
 		
 		<hr/>
+				
+			<div class="form-group">
+				<div class="col-sm-offset-4  col-sm-4 text-center">
+					<button type="button" class="btn btn-primary">구&nbsp;매</button>
+					<a class="btn btn-primary btn" href="#" role="button">이&nbsp;전</a>
+				</div>
+			</div>
+			
+		
+		
+		
 		
 		
 		<br/>

@@ -151,4 +151,12 @@
 			$(self.location).attr("href","/product/listProduct?menu=manage");
 		});
 		
+		 $(function() {
+				//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			 	$("a:contains('구매이력조회')").on("click" , function() {
+					//$(self.location).attr("href","/user/logout");
+					self.location = "/purchase/listPurchase"
+				}); 
+			 })
+		
 	</script>  

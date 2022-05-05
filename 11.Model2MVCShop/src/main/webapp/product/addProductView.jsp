@@ -45,7 +45,7 @@ body>div.container {
 	$(function() {
 		//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 		$("a[href='#' ]").on("click", function() {
-			$("form")[0].reset();
+			history.go(-1);
 		});
 	});
 
@@ -166,11 +166,11 @@ body>div.container {
 
 			<div class="form-group">
 				<div class="col-sm-offset-4  col-sm-4 text-center">
-					<button type="button" class="btn btn-primary">등 &nbsp;록</button>
-					<a class="btn btn-primary btn" href="#" role="button">취&nbsp;소</a>
+					<button type="button" class="btn btn-primary">등&nbsp;록</button>
+					<a class="btn btn-primary btn" href="#" role="button">이&nbsp;전</a>
 				</div>
 			</div>
-		</form>
+		
 		<!-- form Start /////////////////////////////////////-->
 
 	</div>
