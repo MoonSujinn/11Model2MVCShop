@@ -67,15 +67,10 @@ body {
 		//var manuDate = document.detailForm.manuDate.value;
 		//var price = document.detailForm.price.value;
 
-    	var paymentOption=$("input[name='paymentOption']").val();
 		var receiverName=$("input[name='receiverName']").val();
    		var receiverPhone=$("input[name='receiverPhone']").val();
    		var divyAddr=$("input[name='divyAddr']").val();
-   		
-    	if(paymentOption == null || paymentOption.length<1){
-      		alert("구매방법은 반드시 입력하여야 합니다.");
-      		return;
-    	}	   
+   			   
 			if(receiverName == null || receiverName.length<1){
  			alert("구매자이름은 반드시 입력하셔야 합니다.");
   			return;
@@ -127,14 +122,18 @@ body {
 		    </div>
 		  </div>
 
-
-			<div class="form-group">
-				<label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">구매방법</label>
-				<div class="col-sm-4">
-					<input type="text" class="form-control" id="paymentOption"
-						name="paymentOption" value="${purchase.paymentOption}" placeholder="변경구매방법">
-				</div>
-			</div>
+			
+	      <div class="form-group">
+            <label for="paymentOption"
+               class="col-sm-offset-1 col-sm-3 control-label">구매방법</label>
+            <div class="col-sm-4">
+			<select 	name="paymentOption"		class="ct_input_g" 
+							style="width: 100px; height: 19px" maxLength="20">
+				<option value="1" selected="selected">현금구매</option>
+				<option value="2">신용구매</option>
+			</select>
+            </div>
+         </div>
 
 			<div class="form-group">
 				<label for="prodDetail"

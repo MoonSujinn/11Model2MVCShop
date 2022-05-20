@@ -97,46 +97,46 @@
 		       	<!--  회원관리 목록에 제목 -->
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<i class="glyphicon glyphicon-heart"></i> 회원관리
+						<i class="glyphicon glyphicon-ok-sign"></i> 회원관리
          			</div>
          			<!--  회원관리 아이템 -->
 					<ul class="list-group">
 						 <li class="list-group-item">
-						 	<a href="#">개인정보조회</a> <i class="glyphicon glyphicon-ban-circle"></i>
+						 	<a href="#">개인정보조회</a> <i class="glyphicon glyphicon-circle-arrow-right"></i>
 						 </li>
 						 <li class="list-group-item">
-						 	<a href="#">회원정보조회</a> <i class="glyphicon glyphicon-ban-circle"></i>
+						 	<a href="#">회원정보조회</a> <i class="glyphicon glyphicon-circle-arrow-right"></i>
 						 </li>
 					</ul>
 		        </div>
                
                
-				<div class="panel panel-primary">
+				<div class="panel panel-success">
 					<div class="panel-heading">
-							<i class="glyphicon glyphicon-briefcase"></i> 판매상품관리
+							<i class="glyphicon glyphicon-blackboard"></i> 판매상품관리
          			</div>
 					<ul class="list-group">
 						 <li class="list-group-item">
-						 	<a href="#">판매상품등록</a> <i class="glyphicon glyphicon-ban-circle"></i>
+						 	<a href="#">판매상품등록</a> <i class="glyphicon glyphicon-circle-arrow-right"></i>
 						 </li>
 						 <li class="list-group-item">
-						 	<a href="#">판매상품관리</a> <i class="glyphicon glyphicon-ban-circle"></i>
+						 	<a href="#">판매상품관리</a> <i class="glyphicon glyphicon-circle-arrow-right"></i>
 						 </li>
 					</ul>
 		        </div>
                
                
-				<div class="panel panel-primary">
+				<div class="panel panel-warning">
 					<div class="panel-heading">
-							<i class="glyphicon glyphicon-shopping-cart"></i> 상품구매
+							<i class="glyphicon glyphicon-credit-card"></i> 상품구매
 	    			</div>
 					<ul class="list-group">
-						 <li class="list-group-item"><a href="#">상품검색</a></li>
+						 <li class="list-group-item"><a href="#">상품검색</a><i class="glyphicon glyphicon-circle-arrow-right"></i></li>
 						  <li class="list-group-item">
-						  	<a href="#">구매이력조회</a> <i class="glyphicon glyphicon-ban-circle"></i>
+						  	<a href="#">구매이력조회</a> <i class="glyphicon glyphicon-circle-arrow-right"></i>
 						  </li>
 						 <li class="list-group-item">
-						 	<a href="#">최근본상품</a> <i class="glyphicon glyphicon-ban-circle"></i>
+						 	<a href="#">최근본상품</a> <i class="glyphicon glyphicon-circle-arrow-right"></i>
 						 </li>
 					</ul>
 				</div>

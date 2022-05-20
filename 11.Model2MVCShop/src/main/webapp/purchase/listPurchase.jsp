@@ -94,6 +94,7 @@
          //==> 아래와 같이 정의한 이유는 ??
          $(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
       });   
+       
    
    </script>
 	
@@ -111,7 +112,7 @@
       <div class="page-header text-info">
           <h3>구매목록조회</h3>
        </div>
-       
+    
        <!-- table 위쪽 검색 Start /////////////////////////////////////-->
        <div class="row">
        

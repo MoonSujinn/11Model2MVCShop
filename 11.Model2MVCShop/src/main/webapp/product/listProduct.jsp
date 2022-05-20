@@ -136,6 +136,18 @@ body {
         //==> 아래와 같이 정의한 이유는 ??
         $(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
      });   
+    
+    $(function () {	//화면 로딩후 시작
+		$("#searchKeyword").autocomplete({  //오토 컴플릿트 시작
+			source: ["자전거","보드세트","보르도","보라색","보드카","보라돌이","민트초콜릿","민들레","민트","배달의민족","민국이","대한민국"],	// source는 data.js파일 내부의 List 배열
+			focus : function(event, ui) { // 방향키로 자동완성단어 선택 가능하게 만들어줌	
+				return false;
+			},
+			minLength: 1,// 최소 글자수
+			delay: 100,	//autocomplete 딜레이 시간(ms)
+			//disabled: true, //자동완성 기능 끄기
+		});
+	});
   
   </script>
 
